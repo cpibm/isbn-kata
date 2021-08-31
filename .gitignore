@@ -1,1 +1,7 @@
-.env\nnode_modules
+/node_modules/
+/coverage/
+/.scannerwork
+.env
+/README.boilerplate.md
+/dojo-helper.js
+/dojo-helper.sh
