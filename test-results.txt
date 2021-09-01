@@ -1,9 +1,9 @@
  FAIL  tests/dummy.test.js
   It validate the ISBN-13 codes
     ✕ given a ISBN of 9780470059029 then is identified as valid (3 ms)
-    ✓ given a numeric input when passed to the validation then we get an invalid input error (3 ms)
+    ✓ given a numeric input when passed to the validation then we get an invalid input error (2 ms)
     ✓ given a string input with a length less than 13 is passed to the validation then we get an invalid input error
-    ✕ given input string of length 13 with letters when pass the validation then we get an invalid input error
+    ✕ given input string of length 13 with letters when pass the validation then we get an invalid input error (1 ms)
 
   ● It validate the ISBN-13 codes › given a ISBN of 9780470059029 then is identified as valid
 
@@ -24,24 +24,25 @@
 
   ● It validate the ISBN-13 codes › given input string of length 13 with letters when pass the validation then we get an invalid input error
 
-    expect(received).toBe(expected) // Object.is equality
+    expect(received).toThrow(expected)
 
-    Expected: true
-    Received: undefined
+    Expected substring: "Invalid input"
+
+    Received function did not throw
 
       18 |
       19 |   it('given input string of length 13 with letters when pass the validation then we get an invalid input error', () => {
-    > 20 |     expect(validateIsbn('9780470059ABC')).toBe(true);
-         |                                           ^
+    > 20 |     expect(() => validateIsbn('9780470059ABC')).toThrow('Invalid input');
+         |                                                 ^
       21 |   });
       22 | });
       23 |
 
-      at Object.<anonymous> (tests/dummy.test.js:20:43)
+      at Object.<anonymous> (tests/dummy.test.js:20:49)
 
 Test Suites: 1 failed, 1 total
 Tests:       2 failed, 2 passed, 4 total
 Snapshots:   0 total
-Time:        0.422 s, estimated 1 s
+Time:        0.435 s, estimated 1 s
 Ran all test suites.
 Test results written to: test-results.json
