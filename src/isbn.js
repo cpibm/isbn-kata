@@ -13,7 +13,7 @@ const validateIsbn = (input) => {
   for (let index = 0; index < c.length; index++) {
     const element = Number(c[index]);
     const result = 0;
-    if (index % 2 === 0) {
+    if (index % 2 !== 0) {
       result += element * 3;
     } else {
       result += element;
