@@ -1,0 +1,24 @@
+ FAIL  tests/dummy.test.js
+  It validate the ISBN-13 codes
+    ✕ given a ISBN of 9780470059029 then is identified as valid (1 ms)
+
+  ● It validate the ISBN-13 codes › given a ISBN of 9780470059029 then is identified as valid
+
+    ReferenceError: validateIsbn is not defined
+
+       6 |   it('given a ISBN of 9780470059029 then is identified as valid', () => {
+       7 |     const isbn = '9780470059029';
+    >  8 |     expect(validateIsbn(isbn)).toBe(true);
+         |     ^
+       9 |   });
+      10 | });
+      11 |
+
+      at Object.<anonymous> (tests/dummy.test.js:8:5)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.399 s
+Ran all test suites.
+Test results written to: test-results.json
