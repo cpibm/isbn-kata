@@ -6,13 +6,14 @@ const validateInput = (input) => {
 };
 
 const digitOnEvenPosition = (position) => position % 2 !== 0;
+const calculateVerifierDigit = (result) => 10 - (result % 10);
 
 const validateIsbn = (input) => {
   validateInput(input);
 
   const digits = input.split('');
   const isbnDigits = digits.slice(0, 12);
-  const verifierDigit = digits[12];
+  const inputVerifierDigit = digits[12];
   let result = 0;
   for (let index = 0; index < isbnDigits.length; index += 1) {
     const element = Number(isbnDigits[index]);
@@ -22,8 +23,7 @@ const validateIsbn = (input) => {
       result += element;
     }
   }
-  console.log(result);
-  return 10 - (result % 10) === Number(verifierDigit);
+  return calculateVerifierDigit(result) === Number(inputVerifierDigit);
 };
 
 module.exports = { validateIsbn };
