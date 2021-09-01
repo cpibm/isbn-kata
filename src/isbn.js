@@ -1,5 +1,5 @@
 const validateInput = (input) => {
-  const regexp = new RegExp('/[0-9]/', 'g');
+  const regexp = /^\d+$/;
   if (typeof input !== 'string' || input.length < 13 || !regexp.test(input)) {
     throw new Error('Invalid input');
   }
