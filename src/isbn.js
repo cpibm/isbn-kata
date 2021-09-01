@@ -22,6 +22,7 @@ const validateIsbn = (input) => {
       result += element;
     }
   }
+  console.log(result);
   return 10 - (result % 10) === Number(verifierDigit);
 };
 
