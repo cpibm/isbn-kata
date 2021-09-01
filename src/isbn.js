@@ -7,6 +7,18 @@ const validateInput = (input) => {
 
 const validateIsbn = (input) => {
   validateInput(input);
+  const c = input.split('');
+
+  // 1 x 1st digit, 3 x 2nd digit, 1 x 3rd digit, 3 x 4th digit and sum them
+  for (let index = 0; index < c.length; index++) {
+    const element = Number(c[index]);
+    const result = 0;
+    if (index % 2 === 0) {
+      result += element * 3;
+    } else {
+      result += element;
+    }
+  }
 };
 
 module.exports = { validateIsbn };
