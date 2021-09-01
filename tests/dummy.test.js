@@ -9,6 +9,6 @@ describe('It validate the ISBN-13 codes', () => {
   });
 
   it('given a numeric input when passed to the validation then we get an invalid input error', () => {
-    expect(() => validateIsbn(9780470059029)).toThrow();
+    expect(() => validateIsbn(9780470059029)).toThrow('Invalid input');
   });
 });
