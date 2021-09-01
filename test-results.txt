@@ -1,7 +1,7 @@
  FAIL  tests/dummy.test.js
   It validate the ISBN-13 codes
     ✕ given a ISBN of 9780470059029 then is identified as valid (1 ms)
-    ✓ given a numeric input when passed to the validation then we get an invalid input error (3 ms)
+    ✓ given a numeric input when passed to the validation then we get an invalid input error (2 ms)
 
   ● It validate the ISBN-13 codes › given a ISBN of 9780470059029 then is identified as valid
 
@@ -20,6 +20,6 @@
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        0.415 s, estimated 1 s
+Time:        0.335 s, estimated 1 s
 Ran all test suites.
 Test results written to: test-results.json
