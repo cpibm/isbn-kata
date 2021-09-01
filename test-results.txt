@@ -1,34 +1,107 @@
  FAIL  tests/dummy.test.js
   It validate the ISBN-13 codes
-    ✕ given a ISBN of 9780470059029 then is identified as valid (3 ms)
-    ✓ given a numeric input when passed to the validation then we get an invalid input error (2 ms)
-    ✓ given a string input with a length less than 13 is passed to the validation then we get an invalid input error
-    ✕ given input string of length 13 with letters when pass the validation then we get an invalid input error (1 ms)
+    ✕ given a ISBN of 9780470059029 then is identified as valid (1 ms)
+    ✕ given a numeric input when passed to the validation then we get an invalid input error (15 ms)
+    ✕ given a string input with a length less than 13 is passed to the validation then we get an invalid input error (2 ms)
+    ✕ given input string of length 13 with letters when pass the validation then we get an invalid input error (2 ms)
 
   ● It validate the ISBN-13 codes › given a ISBN of 9780470059029 then is identified as valid
 
-    expect(received).toBe(expected) // Object.is equality
+    ReferenceError: Regexp is not defined
 
-    Expected: true
-    Received: undefined
+      1 | const validateInput = (input) => {
+    > 2 |   regexp = new Regexp('/[0-9]/', 'g');
+        |   ^
+      3 |   if (typeof input !== 'string' || input.length < 13 || regexp.test(input)) {
+      4 |     throw new Error('Invalid input');
+      5 |   }
 
-       6 |   it('given a ISBN of 9780470059029 then is identified as valid', () => {
-       7 |     const isbn = '9780470059029';
-    >  8 |     expect(validateIsbn(isbn)).toBe(true);
-         |                                ^
-       9 |   });
+      at validateInput (src/isbn.js:2:3)
+      at validateIsbn (src/isbn.js:9:3)
+      at Object.<anonymous> (tests/dummy.test.js:8:12)
+
+  ● It validate the ISBN-13 codes › given a numeric input when passed to the validation then we get an invalid input error
+
+    expect(received).toThrow(expected)
+
+    Expected substring: "Invalid input"
+    Received message:   "Regexp is not defined"
+
+          1 | const validateInput = (input) => {
+        > 2 |   regexp = new Regexp('/[0-9]/', 'g');
+            |   ^
+          3 |   if (typeof input !== 'string' || input.length < 13 || regexp.test(input)) {
+          4 |     throw new Error('Invalid input');
+          5 |   }
+
+          at validateInput (src/isbn.js:2:3)
+          at validateIsbn (src/isbn.js:9:3)
+          at tests/dummy.test.js:12:18
+          at Object.<anonymous> (node_modules/expect/build/toThrowMatchers.js:83:11)
+          at Object.toThrow (node_modules/expect/build/index.js:382:21)
+          at Object.<anonymous> (tests/dummy.test.js:12:47)
+
       10 |
       11 |   it('given a numeric input when passed to the validation then we get an invalid input error', () => {
+    > 12 |     expect(() => validateIsbn(9780470059029)).toThrow('Invalid input');
+         |                                               ^
+      13 |   });
+      14 |
+      15 |   it('given a string input with a length less than 13 is passed to the validation then we get an invalid input error', () => {
 
-      at Object.<anonymous> (tests/dummy.test.js:8:32)
+      at Object.<anonymous> (tests/dummy.test.js:12:47)
+
+  ● It validate the ISBN-13 codes › given a string input with a length less than 13 is passed to the validation then we get an invalid input error
+
+    expect(received).toThrow(expected)
+
+    Expected substring: "Invalid input"
+    Received message:   "Regexp is not defined"
+
+          1 | const validateInput = (input) => {
+        > 2 |   regexp = new Regexp('/[0-9]/', 'g');
+            |   ^
+          3 |   if (typeof input !== 'string' || input.length < 13 || regexp.test(input)) {
+          4 |     throw new Error('Invalid input');
+          5 |   }
+
+          at validateInput (src/isbn.js:2:3)
+          at validateIsbn (src/isbn.js:9:3)
+          at tests/dummy.test.js:16:18
+          at Object.<anonymous> (node_modules/expect/build/toThrowMatchers.js:83:11)
+          at Object.toThrow (node_modules/expect/build/index.js:382:21)
+          at Object.<anonymous> (tests/dummy.test.js:16:46)
+
+      14 |
+      15 |   it('given a string input with a length less than 13 is passed to the validation then we get an invalid input error', () => {
+    > 16 |     expect(() => validateIsbn('9780470059')).toThrow('Invalid input');
+         |                                              ^
+      17 |   });
+      18 |
+      19 |   it('given input string of length 13 with letters when pass the validation then we get an invalid input error', () => {
+
+      at Object.<anonymous> (tests/dummy.test.js:16:46)
 
   ● It validate the ISBN-13 codes › given input string of length 13 with letters when pass the validation then we get an invalid input error
 
     expect(received).toThrow(expected)
 
     Expected substring: "Invalid input"
+    Received message:   "Regexp is not defined"
 
-    Received function did not throw
+          1 | const validateInput = (input) => {
+        > 2 |   regexp = new Regexp('/[0-9]/', 'g');
+            |   ^
+          3 |   if (typeof input !== 'string' || input.length < 13 || regexp.test(input)) {
+          4 |     throw new Error('Invalid input');
+          5 |   }
+
+          at validateInput (src/isbn.js:2:3)
+          at validateIsbn (src/isbn.js:9:3)
+          at tests/dummy.test.js:20:18
+          at Object.<anonymous> (node_modules/expect/build/toThrowMatchers.js:83:11)
+          at Object.toThrow (node_modules/expect/build/index.js:382:21)
+          at Object.<anonymous> (tests/dummy.test.js:20:49)
 
       18 |
       19 |   it('given input string of length 13 with letters when pass the validation then we get an invalid input error', () => {
@@ -41,8 +114,8 @@
       at Object.<anonymous> (tests/dummy.test.js:20:49)
 
 Test Suites: 1 failed, 1 total
-Tests:       2 failed, 2 passed, 4 total
+Tests:       4 failed, 4 total
 Snapshots:   0 total
-Time:        0.435 s, estimated 1 s
+Time:        0.495 s, estimated 1 s
 Ran all test suites.
 Test results written to: test-results.json
