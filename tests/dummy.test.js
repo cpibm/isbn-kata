@@ -1,4 +1,4 @@
-// const { dummy } = require('../src/dummy');
+const { validateIsbn } = require('../src/isbn');
 
 describe('It validate the ISBN-13 codes', () => {
   // beforeEach(() => {});
