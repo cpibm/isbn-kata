@@ -1,26 +1,25 @@
  FAIL  tests/dummy.test.js
   It validate the ISBN-13 codes
     ✕ given a ISBN of 9780470059029 then is identified as valid (1 ms)
-    ✓ given a numeric input when passed to the validation then we get an invalid input error (1 ms)
+    ✓ given a numeric input when passed to the validation then we get an invalid input error (2 ms)
 
   ● It validate the ISBN-13 codes › given a ISBN of 9780470059029 then is identified as valid
 
-    thrown: "Invalid input"
+    Invalid input
 
-      4 |   // beforeEach(() => {});
-      5 |
-    > 6 |   it('given a ISBN of 9780470059029 then is identified as valid', () => {
-        |   ^
-      7 |     const isbn = '9780470059029';
-      8 |     expect(validateIsbn(isbn)).toBe(true);
-      9 |   });
+      1 | const validateIsbn = () => {
+    > 2 |   throw new Error('Invalid input');
+        |         ^
+      3 | };
+      4 |
+      5 | module.exports = { validateIsbn };
 
-      at tests/dummy.test.js:6:3
-      at Object.<anonymous> (tests/dummy.test.js:3:1)
+      at validateIsbn (src/isbn.js:2:9)
+      at Object.<anonymous> (tests/dummy.test.js:8:12)
 
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        0.417 s, estimated 1 s
+Time:        0.457 s, estimated 1 s
 Ran all test suites.
 Test results written to: test-results.json

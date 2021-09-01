@@ -1,5 +1,5 @@
 const validateIsbn = () => {
-  throw 'Invalid input';
+  throw new Error('Invalid input');
 };
 
 module.exports = { validateIsbn };
