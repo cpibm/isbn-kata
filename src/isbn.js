@@ -16,7 +16,7 @@ const validateIsbn = (input) => {
   let result = 0;
   for (let index = 0; index < isbnDigits.length; index += 1) {
     const element = Number(isbnDigits[index]);
-    if (digitOnEvenPosition()) {
+    if (digitOnEvenPosition(index)) {
       result += element * 3;
     } else {
       result += element;
