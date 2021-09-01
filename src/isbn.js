@@ -5,6 +5,8 @@ const validateInput = (input) => {
   }
 };
 
+const digitOnEvenPosition = (position) => position % 2 !== 0;
+
 const validateIsbn = (input) => {
   validateInput(input);
 
@@ -14,7 +16,7 @@ const validateIsbn = (input) => {
   let result = 0;
   for (let index = 0; index < isbnDigits.length; index += 1) {
     const element = Number(isbnDigits[index]);
-    if (index % 2 !== 0) {
+    if (digitOnEvenPosition()) {
       result += element * 3;
     } else {
       result += element;
