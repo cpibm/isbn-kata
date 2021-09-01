@@ -11,8 +11,8 @@ const validateIsbn = (input) => {
   validateInput(input);
 
   const digits = input.split('');
-  const isbnDigits = digits.slice(0, 11);
-  const verifierDigit = digits.slice(11, 12);
+  const isbnDigits = digits.slice(0, 12);
+  const verifierDigit = digits[12];
   let result = 0;
   for (let index = 0; index < isbnDigits.length; index += 1) {
     const element = Number(isbnDigits[index]);
