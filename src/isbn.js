@@ -20,7 +20,7 @@ const validateIsbn = (input) => {
       result += element;
     }
   }
-  return 10 - (result % 10) === Number(digits[digits.length - 1]);
+  return 10 - (result % 10) === Number(verifierDigit);
 };
 
 module.exports = { validateIsbn };
