@@ -12,7 +12,7 @@ const validateIsbn = (input) => {
   const isbnDigits = digits.slice(0, 11);
   const verifierDigit = digits.slice(11, 12);
   let result = 0;
-  for (let index = 0; index < digits.length - 1; index += 1) {
+  for (let index = 0; index < isbnDigits.length; index += 1) {
     const element = Number(digits[index]);
     if (index % 2 !== 0) {
       result += element * 3;
