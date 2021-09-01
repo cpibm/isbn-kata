@@ -20,7 +20,7 @@ describe('It validate the ISBN-13 codes', () => {
     expect(() => validateIsbn('9780470059ABC')).toThrow('Invalid input');
   });
 
-  it('given a ISBN of 9780470059027 then is identified as valid', () => {
+  it('given a ISBN of 9780470059027 then is identified as invalid', () => {
     const isbn = '9780470059027';
     expect(validateIsbn(isbn)).toBe(false);
   });
