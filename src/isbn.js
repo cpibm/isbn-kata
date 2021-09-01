@@ -1,5 +1,5 @@
-class Dummy {
-	// constructor() {}
-}
+const validateIsbn = () => {
+  throw 'Invalid input';
+};
 
-module.exports = { Dummy };
+module.exports = { validateIsbn };
